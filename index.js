@@ -1,3 +1,24 @@
+
+const calendar = [
+    31,
+    28,
+    31,
+    30,
+    31,
+    30,
+    31,
+    31,
+    30,
+    31,
+    30,
+    31,
+]
+
+
+
+
+
+
 function separateDate(date) {
 
     let dayNumber = ""
@@ -43,10 +64,14 @@ function isValideDate(date) {
 
     const dateSeparated = separateDate(date)
 
-    if(dateSeparated.monthNumber < 1 || 12 < dateSeparated.monthNumber){
+    if (dateSeparated.monthNumber < 1 || 12 < dateSeparated.monthNumber) {
         return false
-    } 
-    if (dateSeparated.yearNumber < 999 || 9999 <dateSeparated.yearNumber){
+    }
+    if (dateSeparated.yearNumber < 999 || 9999 < dateSeparated.yearNumber) {
+        return false
+
+    }
+    if (calendar[dateSeparated.monthNumber - 1] < dateSeparated.dayNumber) {
         return false
 
     }
@@ -56,4 +81,4 @@ function isValideDate(date) {
 }
 
 
-console.log(isValideDate("03/14/2001"))
+console.log(isValideDate("09/10/2001"))
