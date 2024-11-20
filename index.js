@@ -15,10 +15,6 @@ const calendar = [
 ]
 
 
-
-
-
-
 function separateDate(date) {
 
     let dayNumber = ""
@@ -81,4 +77,24 @@ function isValideDate(date) {
 }
 
 
-console.log(isValideDate("09/10/2001"))
+isValideDate("09/10/2001")
+
+
+
+function isPalindrome(date) {
+
+    const dateSeparated = separateDate(date)
+
+    let dateWithoutSlash = dateSeparated.dayNumber + dateSeparated.monthNumber + dateSeparated.yearNumber
+
+    for (let index1 = 0, index2 = dateWithoutSlash.length - 1; index1 <= index2; index1++, index2--) {
+        if (dateWithoutSlash[index1] !== dateWithoutSlash[index2]) {
+            return false
+        }
+    }
+
+    return true
+
+}
+
+console.log(isPalindrome("22/02/2022"))
